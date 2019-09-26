@@ -1,0 +1,84 @@
+<div class="modal-header">
+    <h4 class="font-weight-bold" style="font-size:23px" >Ubezpieczenie mieszkaniowe</h4>
+    <br/>
+    <button  type="submit" ng-click="isCollapsed = !isCollapsed"  (click)="pobierzPolise()" uib-collapse="isCollapsed" class="font-weight-normal" style="width:145px; height:37px;" > Numer polisy:  {{polisaId}} </button>
+
+</div>
+
+<h4 >  <button type="submit" class="btn btn-primary" class="alert-link"   (click)="pobierzPoliseById(polisaId)" class="font-weight-normal" style="width:145px; height:37px;" >  Moje dane: </button>
+    <br/>
+
+
+    <div *ngIf="polisa != null">
+        <p style="font-size:20px"> <a class="font-weight-bold">   Numer polisy mieszkaniowej: </a>  {{polisa.id}} <br/> <a class="font-weight-bold"> Ulica: </a> {{polisa.ulica}}<br/> <a class="font-weight-bold"> Numer budynku: </a>  {{polisa.numerBudynku}}<br/>  <a class="font-weight-bold">Miasto:</a>  {{polisa.miasto}} <br/> <a class="font-weight-bold"> Kod pocztowy: </a> {{polisa.kodPocztowy}} <br/> <a class="font-weight-bold"> Numer Mieszkania: </a> {{polisa.numerMieszkania}} <br/> <br/>
+
+            <a class="font-weight-bold"> Numer identyfikacyjny:: </a>{{polisa.klientDTO.id}}  <br/> <a class="font-weight-bold"> Imie: </a>{{polisa.klientDTO.imie}} <br/>  <a class="font-weight-bold">Nazwisko:  </a> {{polisa.klientDTO.nazwisko}} <br/> <a class="font-weight-bold"> Adres email: </a> {{polisa.klientDTO.email}}  <br/>  {{polisa.fakturaMieszkaniowa.idFaktura}} </p>
+
+<!--</h4>-->
+
+
+<!--<h4 >-->
+  <button type="submit" class="btn btn-primary" class="alert-link"   class="alert alert-primary" (click)="pobierzUbezpieczeniaRuchomosciDomowychByIdPolisaMieszkaniowa(polisa.id)" style="font-size:20px" > Ubezpieczenie ruchomosci domowych </button>
+
+
+
+
+        <div *ngIf="ubezpieczenieRuchomosciDomowych != null">
+
+
+
+            <p style="font-size:20px"><a class="font-weight-bold"> Kwota zabezpieczenia:</a> {{ubezpieczenieRuchomosciDomowych.koszt}} <br/> <a class="font-weight-bold">  Miasto: </a>{{ubezpieczenieRuchomosciDomowych.polisaMieszkaniowaDTO.miasto}}   <br/>  <a class="font-weight-bold">  Data: </a>{{ubezpieczenieRuchomosciDomowych.data}}  <br/> </p>
+
+
+            <div> <h4><label class="font-weight-bold" class="font-italic"> Chcesz zmienic kwote zabezpiecznia?  </label>
+<br/>
+                <label  style="font-size:15px"> Nowa kwota </label>
+                <input type="text" class="form-control" [(ngModel)]="kwota"  #login="ngModel"
+                       required minlength="1" maxlength="50" pattern="^[_'.@A-Za-z0-9-]*$">
+
+                <button type="submit" class="btn btn-primary" class="alert-link" (click)="modyfikujUbezpieczeniaRuchomosciDomowych(kwota)"  class="font-weight-bold" style="font-size:15px" >  Zapisz zmiany </button>
+
+            </h4> </div>
+
+
+            <button type="submit" class="btn btn-primary" class="alert-link" (click)="zrezygnujZUbezpieczeniaRuchomosciDomowych(polisaId)"  class="font-weight-bold" style="font-size:15px" >  Zrezygnuj z ubezpieczenia </button>
+
+        </div>
+
+<br/>
+
+    <button type="submit" class="btn btn-primary" class="alert-link"   class="alert alert-success"  (click)="pobierzZabezpieczeniePrzeciwkradziezoweByIdPolisaMieszkaniowa(polisa.id)" style="font-size:21.5px" >Zabezpieczenie przeciwkradziezowe </button>
+
+
+
+    <div *ngIf=" zabezpieczeniePrzeciwkradziezowe!= null">
+
+        <p style="font-size:20px"><a class="font-weight-bold"> Kwota zabezpieczenia:</a> {{zabezpieczeniePrzeciwkradziezowe.koszt}} <br/> <a class="font-weight-bold">  Miasto: </a>{{zabezpieczeniePrzeciwkradziezowe.polisaMieszkaniowaDTO.miasto}}   <br/> <a class="font-weight-bold">  Data:</a> {{zabezpieczeniePrzeciwkradziezowe.data}} </p>
+
+
+       <h4>
+           <label class="font-weight-bold" class="font-italic"> Chcesz zmienic kwote zabezpiecznia?  </label>
+<br/>
+            <label  style="font-size:15px">Nowa kwota </label>
+            <input type="text" class="form-control" [(ngModel)]="kwota2"  #login="ngModel"
+                   required minlength="1" maxlength="50" pattern="^[_'.@A-Za-z0-9-]*$">
+
+            <button type="submit" class="btn btn-primary" class="alert-link" (click)="modyfikujZabezpieczeniePrzeciwkradziezowe(kwota2)"  class="font-weight-bold" style="font-size:15px">  Zapisz zmiany </button>
+        </h4>
+
+        <button type="submit" class="btn btn-primary" class="alert-link" (click)="zrezygnujZZabezpieczeniaPrzeciwkradziezowego(polisaId)"  class="font-weight-bold" style="font-size:15px">  Zrezygnuj z zabezpieczenia </button>
+
+    </div>
+
+    </div>
+    </div>
+    </div>
+
+
+</h4>
+<!--zeby si emoc do polisy odwolywac-->
+
+
+<br/>
+
+

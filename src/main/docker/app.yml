@@ -1,0 +1,14 @@
+version: '2'
+services:
+    modul_ubezpieczen-app:
+        image: modul_ubezpieczen
+        environment:
+            - SPRING_PROFILES_ACTIVE=prod,swagger
+            - SPRING_DATASOURCE_URL=jdbc:mysql://modul_ubezpieczen-mysql:3306/modul_ubezpieczen?useUnicode=true&characterEncoding=utf8&useSSL=false
+            - JHIPSTER_SLEEP=10 # gives time for the database to boot before the application
+        ports:
+            - 8080:8080
+    modul_ubezpieczen-mysql:
+        extends:
+            file: mysql.yml
+            service: modul_ubezpieczen-mysql

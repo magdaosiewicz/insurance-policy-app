@@ -1,0 +1,80 @@
+<!--<div>-->
+    <!--<div class="row justify-content-center">-->
+        <!--<div class="col-md-8">-->
+
+            <!--<div  *ngIf="success">-->
+                <!--<span  ><strong>Your user account has been activated.</strong> Please </span>-->
+                <!--<a class="alert-link" (click)="login()" jhiTranslate="global.messages.info.authenticated.link">sign in</a>.-->
+            <!--</div>-->
+
+            <!--<div class="alert alert-danger" *ngIf="error" jhiTranslate="activate.messages.error">-->
+                <!--<strong>Your user could not be activated.</strong> Please use the registration form to sign up.-->
+            <!--</div>-->
+
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
+ <!--alert-danger to rozowa ramka-->
+
+
+<div class="alert alert-warning" *ngIf="error" xmlns="http://www.w3.org/1999/html">
+    <b class="font-weight-bold"  > <font size="6"> <p align="center">Twoje faktury i rozliczenia </p> </font></b>
+</div>
+
+<b>
+    <b class="font-weight-bold" style="font-size:30px" align="left">Ubezpieczenie mieszkaniowe </b><button  type="submit"   ng-click="isCollapsed = !isCollapsed"  (click)="pobierzPolise()" uib-collapse="isCollapsed"  style="width:170px; height:33px;" > <font size="4">Numer polisy:  {{polisaId}} </font> </button></b>
+<br/>
+<b> <button  class="link" (click)="pobierzPoliseById(polisaId)"> <font size="5" >Dane klienta: </font> </button></b> <div style="float: right;"><img src="too.png"></div>
+   <br/>
+    <div *ngIf="polisa != null">
+        <p style="font-size:20px">  <a class="font-weight-bold">Imie: </a> {{polisa.klientDTO.imie}}<br/> <a class="font-weight-bold"> Nazwisko: </a>{{polisa.klientDTO.nazwisko}} <br/> <a class="font-weight-bold"> Adres email: </a>{{polisa.klientDTO.email}}<br/>
+        <a class="font-weight-bold">Ulica: </a>{{polisa.ulica}} <br/> <a class="font-weight-bold">Numer budynku: </a>{{polisa.numerBudynku}} <br/> <a class="font-weight-bold"> Numer mieszkania: </a>{{polisa.numerMieszkania}} <br/> <a class="font-weight-bold">Miasto: </a>{{polisa.miasto}} <br/> <a class="font-weight-bold">Kod pocztowy: </a>{{polisa.kodPocztowy}} <br/> <br/> </p>
+
+
+        <div *ngIf="polisa.fakturaMieszkaniowa != null">
+            <p style="font-size:20px"> <a class="font-weight-bold">  Numer faktury:</a>  {{polisa.fakturaMieszkaniowa.id}} <br/> <a class="font-weight-bold">Kwota do zapłaty: </a>{{polisa.fakturaMieszkaniowa.kwota}}zl <br/> <a class="font-weight-bold">Informacje: </a>{{polisa.fakturaMieszkaniowa.opis}} <br/>{{polisa.fakturaMieszkaniowa.data}} </p>
+       </div>
+
+        <div *ngIf="polisa.fakturaMieszkaniowa == null">
+            <p style="font-size:20px"> <a class="font-weight-bold" > Nie ma jeszcze faktury! </a></p>
+
+        </div>
+
+       </div>
+</p>
+    <br/> <br/>
+
+    <!--<button type="submit" class="btn btn-primary" class="alert-link"   (click)="pobierzFakturyMieszkaniowe()"  > wszystkie </button>-->
+
+        <!--<div *ngFor="let faktura of faktury">-->
+            <!--{{faktura.id}} -> {{faktura.data}}-->
+        <!--</div>-->
+
+
+
+    </div>
+    </div>
+
+
+
+
+
+
+
+
+</h4>
+
+
+</h4>
+
+
+
+
+
+
+
+
+
+
+
+

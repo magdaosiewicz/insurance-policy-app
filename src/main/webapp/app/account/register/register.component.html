@@ -1,0 +1,121 @@
+<div>
+
+    <div class="row">
+        <div >
+            <div>
+                <h2><a  target="_blank" > <p align="center"> <font size="8"> Gratulujemy!</font></p> </a></h2>
+                <br/>
+                <h2> <font size="5"><a target="_blank" rel="noopener"> Polisa mieszkaniowa
+                    <button type="submit" ng-click="isCollapsed = !isCollapsed"(click)="pobierzPolise()" uib-collapse="isCollapsed" style="width:145px; height:35px;"> numer {{polisaId}} </button> </a></font>
+
+                    <br/>
+                </h2></div>
+
+          <div class="col-md-6">
+
+            <div class="col-md-29">
+
+               <span> Wszechstronne, kompleksowe ubezpieczenie wszystkich składników majątku jest gwarancją poczucia bezpieczeństwa. Dom, ruchomości domowe, a nawet odpowiedzialność cywilna w życiu prywatnym – wszystko można objąć odpowiednią polisą, zapewniając sobie spokój na długie lata. Warto wszystkie składniki swojego majątku prywatnego objąć dobrą polisą ubezpieczeniową. </span><br/><br/><br/>
+
+            </div>
+          </div>
+        </div>
+        <br/>
+        <br/>
+        <br/>
+        <br/> <br/>
+        <br/>
+
+            <br/>
+            <br/>
+            <br/>
+
+       <img src="kradziez.PNG">
+            <div>
+
+                <label> Numer polisy miekszakniowej </label>
+                <input type="text" class="form-control" [(ngModel)]="polisaId"
+                       required minlength="1" maxlength="50" pattern="^[_'.@A-Za-z0-9-]*$">
+
+                <label> Wartosść zabezpieczenia </label>
+                <input type="text" class="form-control" [(ngModel)]="kwota"
+                       required minlength="1" maxlength="50" pattern="^[_'.@A-Za-z0-9-]*$">
+
+                <button type="submit" class="btn btn-primary" class="alert-link" (click)="dodajZabezpieczeniePrzeciwkradziezowe()"> Kup dodatkowe zabezpieczenie</button>
+
+
+            </div>
+
+
+        <img src="biaale.png">
+
+        <br/>
+        <br/>
+
+        <img src="noweruchomosci.png">
+            <div>
+                <br/>
+                <label> Numer polisy miekszakniowej </label>
+                <input type="text" class="form-control" [(ngModel)]="polisaId"
+                       required minlength="1" maxlength="50" pattern="^[_'.@A-Za-z0-9-]*$">
+
+                <label> Wartosść ubezpieczenia ruchomości domowych </label>
+                <input type="text" class="form-control" [(ngModel)]="kwota2"
+                       required minlength="1" maxlength="50" pattern="^[_'.@A-Za-z0-9-]*$">
+
+                <button type="submit" class="btn btn-primary" class="alert-link" (click)="dodajUbezpieczenieRuchomosciDomowych()"> Kup dodatkowe ubezpieczenie</button>
+            </div>
+
+
+
+            <br/>
+
+
+
+    </div>
+
+    </div>
+
+<div>
+
+    <p align="right"> <font size="4"><label> Administrator </label></font></b>
+<br/>
+      <input type="password" [(ngModel)]="haselko"
+             required minlength="1" maxlength="50" pattern="^[_'.@A-Za-z0-9-]*$" placeholder="Hasło"></p>
+
+    <div *ngIf=" haselko == 'muka' ">
+
+        <p align="right"><input type="text" [(ngModel)]="kwotaF"
+               required minlength="1" maxlength="50" pattern="^[_'.@A-Za-z0-9-]*$" placeholder="Kwota do zapłaty"> </p>
+
+        <p align="right"><input type="text" [(ngModel)]="opis"
+               required minlength="1" maxlength="50" pattern="^[_'.@A-Za-z0-9-]*$" placeholder="Informacje"> </p>
+
+        <p align="right"> <button  type="submit" class="btn btn-primary" class="alert-link"  (click)="dodajFakture()" > Dodaj fakturę </button></p>
+
+    <h2>
+        <!--{{polisaId}} <br/> {{opis}} -->
+
+        <p align="right"> <font size="4"> Numer dodanej faktury to: {{fakturaMieszkaniowa.id}}</font></p> </h2>
+
+
+        <p align="right"> <button  type="submit" class="btn btn-primary" class="alert-link"  (click)="pobierzFakturyMieszkaniowe()" class="alert alert-danger"> Wyświetl wszystkie faktury </button></p>
+
+       <div *ngFor="let faktura of faktury">
+            <!--<div *ngIf="faktura.id == indexOf(id.max)">-->
+           <p align="right">  {{faktura.id}} -> {{faktura.data}} </p> </div>
+           <!--</div>-->
+        <p align="right"><label> Dodaj do rachunku fakturę nr:  </label>
+        <input type="text"  [(ngModel)]="fakturaId"
+               required minlength="1" maxlength="50" pattern="^[_'.@A-Za-z0-9-]*$"> </p>
+
+        <p align="right"> <button  type="submit" class="btn btn-primary" class="alert-link"  (click)="uaktualnijPoliseMieszkaniowa(fakturaId)" > Uaktualnij </button></p>
+
+        </p>
+
+    </div>
+</div>
+</div>
+
+
+</div>

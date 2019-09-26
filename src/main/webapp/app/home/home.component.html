@@ -1,0 +1,84 @@
+<div class="row">
+    <div class="col-md-3">
+        <img src="dom.png" >
+        <br/>
+        <br/>
+        <br/>
+
+        <button type="submit"  class="btn btn-primary" class="alert-link"  (click)="pobierzKlientow()"> Baza klientów  </button>
+
+        <br/>
+        <br/>
+        <div *ngFor="let klient of klienci">
+            {{klient.id}} -> {{klient.email}}
+        </div>
+</div>
+    <div class="col-md-9">
+
+
+        <h2><b class="font-weight-bold"  > <font size="6.5">  <p align="center"> Ubezpiecz swój dom - to proste! </p> </font></h2>
+
+          <div [ngSwitch]="isAuthenticated()">
+              <div class="alert alert-success" *ngSwitchCase="true">
+
+              </div>
+
+
+              <div class="alert alert-warning" *ngSwitchCase="false">   <!-- rozowe tlo -->
+                  <span >Nie masz jeszcze naszego ubezpieczenia? </span>
+                  <a class="alert-link" routerLink="register" >Kup online!</a>
+
+              </div>
+
+              <div class="alert alert-warning" *ngSwitchCase="false">
+                  Niezależnie czy chcesz ubezpieczyć mieszkanie czy dom jednorodzinny wystarczy, że podasz nam  <a> adres nieruchomości. </a>
+              </div>
+<br/>
+              <div >
+                  <div class="col-md-12">
+
+                      <label> Numer identyfikacyjny </label>
+                      <input type="text" class="form-control" [(ngModel)]="klientId"
+                             required minlength="1" maxlength="50" pattern="^[_'.@A-Za-z0-9-]*$">
+
+              <label> Miasto </label>
+              <input type="text" class="form-control" [(ngModel)]="miasto"  #login="ngModel"
+                     required minlength="1" maxlength="50" pattern="^[_'.@A-Za-z0-9-]*$">
+
+              <label > Kod pocztowy </label>
+              <input type="text" class="form-control" [(ngModel)]="kodPocztowy" #login="ngModel"
+                     required minlength="1" maxlength="50" pattern="^[_'.@A-Za-z0-9-]*$">
+
+              <label > Ulica </label>
+              <input type="text" class="form-control" [(ngModel)]="ulica"  #login="ngModel"
+                     required minlength="1" maxlength="50" pattern="^[_'.@A-Za-z0-9-]*$">
+
+              <label > Numer budynku </label>
+              <input type="text" class="form-control" [(ngModel)]="numerBudynku"#login="ngModel"
+                     required minlength="1" maxlength="50" pattern="^[_'.@A-Za-z0-9-]*$">
+
+              <label> Numer mieszkania </label>
+              <input type="text" class="form-control" [(ngModel)]="numerMieszkania" id="login" name="login" #login="ngModel"
+                     required minlength="1" maxlength="50" pattern="^[_'.@A-Za-z0-9-]*$">
+
+
+
+                  <br/>
+              <button  routerLink="/register" type="submit" [disabled]="registerForm.form.invalid" class="btn btn-primary"  class="alert-link" (click)="dodajPoliseMieszkaniowa()"   >  Kup ubezpieczenie  </button>
+
+
+              </div>
+              <br/>
+              <br/>
+
+
+              <p>
+
+                  <p align="center"> Jeśli masz jakieś pytania na temat naszego ubezpieczenia zadzwoń: 777 000 000 </p>
+          </p>
+
+
+
+
+      </div>
+  </div>
